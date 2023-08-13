@@ -1,0 +1,28 @@
+name: Build English and French CV
+on:
+    push:
+        paths:
+          - '**.tex'
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile TeX Document with XeLateX
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: |
+            resume_fr.tex
+            resume_en.tex
+          latexmk_use_xelatex: true
+      - name: Upload French CV file
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDF
+          path: resume_fr.pdf    
+      - name: Upload English CV file
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDF
+          path: resume_en.pdf

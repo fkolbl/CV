@@ -1,6 +1,9 @@
 ## MacOS files
 .DS_store
 
+## VScode files
+.vscode/*
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
