@@ -16,13 +16,18 @@ jobs:
             resume_fr.tex
             resume_en.tex
           latexmk_use_xelatex: true
-      - name: Upload French CV file
-        uses: actions/upload-artifact@v3
-        with:
-          name: PDF
-          path: resume_fr.pdf    
-      - name: Upload English CV file
-        uses: actions/upload-artifact@v3
-        with:
-          name: PDF
-          path: resume_en.pdf
+      - name: Get back result in repo
+        run: |
+          git add resume_fr.tex resume_en.tex
+          git commit -m "Get back Build-action result in repo"
+          git push
+#      - name: Upload French CV file
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: PDF
+#          path: resume_fr.pdf    
+#      - name: Upload English CV file
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: PDF
+#          path: resume_en.pdf
