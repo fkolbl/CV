@@ -16,18 +16,17 @@ jobs:
             resume_fr.tex
             resume_en.tex
           latexmk_use_xelatex: true
-      - name: Get back result in repo
-        run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "F. Kolbl, automation"
-          git add resume_fr.tex resume_en.tex
-          git commit -m "Get back Build-action result in repo"
-          git push
-#      - name: Upload French CV file
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: PDF
-#          path: resume_fr.pdf    
+      - name: Upload French CV file
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDF
+          path: |
+             resume_fr.pdf
+             resume_en.pdf
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: CVs
 #      - name: Upload English CV file
 #        uses: actions/upload-artifact@v3
 #        with:
