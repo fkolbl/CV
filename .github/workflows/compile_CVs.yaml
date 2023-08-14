@@ -18,6 +18,8 @@ jobs:
           latexmk_use_xelatex: true
       - name: Get back result in repo
         run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "F. Kolbl, automation"
           git add resume_fr.tex resume_en.tex
           git commit -m "Get back Build-action result in repo"
           git push
