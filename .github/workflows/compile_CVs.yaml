@@ -19,7 +19,7 @@ jobs:
       - name: Upload French CV file
         uses: actions/upload-artifact@v3
         with:
-          name: PDF
+          name: CVs
           path: |
              resume_fr.pdf
              resume_en.pdf
