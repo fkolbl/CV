@@ -24,7 +24,7 @@ jobs:
              resume_fr.pdf
              resume_en.pdf
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: CVs
 #      - name: Upload English CV file
